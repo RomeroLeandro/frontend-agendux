@@ -1,7 +1,7 @@
 import './App.css'
 import {Header} from './components/layout/Header'
 import { Typography } from './components/ui/Typografhy'
-import ListCard from './components/layout/listCard'
+import ListCard from './components/layout/ListCard'
 import Card from './components/layout/Card'
 import CardMedic from './components/layout/CardMedic'
 import CardIngresos from './components/layout/CardIngresos'
