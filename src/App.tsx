@@ -1,35 +1,41 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import {Header} from './components/layout/Header'
+import { Typography } from './components/ui/Typografhy'
+import ListCard from './components/layout/listCard'
+import Card from './components/layout/Card'
+import CardMedic from './components/layout/CardMedic'
+import CardIngresos from './components/layout/CardIngresos'
+import Faq from './components/layout/Faq'
+import HelpCard from './components/layout/HelpCard'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="bg-red-500 text-white p-4 rounded-lg shadow-lg">
-        Click on the Vite and React logos to learn more
-      </p>
-      <div className='w-sm text-red-500 bg-blue-200 p-4 rounded-lg shadow-lg'>
-      Hola</div>
+      <Header />
+      <main>
+        <div className="container mx-auto px-4 py-20">
+          <Typography variant="display">Bienvenido a Agendux</Typography>
+          <Typography variant="heading-xl">Bienvenido a Agendux</Typography>
+          <Typography variant="heading-lg" className="mt-4">Bienvenido a Agendux</Typography>
+          <Typography variant="heading-md">Bienvenido a Agendux</Typography>
+          <Typography variant="heading-sm">Bienvenido a Agendux</Typography>
+          <Typography variant="body-lg">Bienvenido a Agendux</Typography>
+          <Typography variant="body-md">Bienvenido a Agendux</Typography>
+          <Typography variant="body-sm">Bienvenido a Agendux</Typography>
+          <Typography variant="caption">Bienvenido a Agendux</Typography>
+          <Typography variant="badge">Ventajas</Typography>
+          <div className='flex'><ListCard />
+    <ListCard /></div>
+    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8'>
+      <Card/>
+    <CardMedic />
+<CardIngresos />
+    </div>
+    <Faq />
+    <HelpCard />
+        </div>
+      </main>
     </>
   )
 }

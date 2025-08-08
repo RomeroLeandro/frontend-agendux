@@ -1,1 +1,53 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@font-face {
+  font-family: 'adineue PRO';
+  src: url(../public/fonts/adineue-PRO.woff2) format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'adineue PRO Bold';
+  src: url(../public/fonts/adineue-PRO-Bold.woff2) format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url(../public/fonts/Poppins.woff2) format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  body{
+    @apply bg-bg dark:bg-bg-dark text-font-primary dark:text-font-primary-dark;
+  }
+}
+@theme {
+  --color-bg: #E5E7EB;
+  --color-bg-dark: #1E1E1E;
+  --container-8xl: 1440px;
+
+  --color-font-primary: #111827;
+  --color-font-secondary: #374151;
+
+  --color-font-primary-dark: #F3F4F6;
+  --color-font-secondary-dark: #E5E7EB;
+
+  --color-link: #254AB6;
+
+  --color-blue-primary: #3161DD;
+  --color-blue-secondary: #528DFF;
+
+  --font-adineue: 'adineue PRO', sans-serif;
+  --font-adineue-bold: 'adineue PRO Bold', sans-serif;
+  --font-poppins: 'Poppins', sans-serif;
+}
+
