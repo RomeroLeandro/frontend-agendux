@@ -1,5 +1,5 @@
 import { Card } from '../ui/Card';
-import { Typography } from '../ui/Typografhy';
+import { Typography } from '../ui/Typography';
 import { TrendingUp } from 'lucide-react'; // Ícono de ejemplo
 
 // Reutilizamos el mismo IconWrapper

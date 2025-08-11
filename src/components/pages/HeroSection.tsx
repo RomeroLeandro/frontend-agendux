@@ -1,0 +1,65 @@
+import { Typography } from "../ui/Typography";
+import { Button } from "../ui/Button";
+import { CheckCircle2 } from "lucide-react";
+
+const SyncPill = () => (
+  <div className="inline-flex items-center gap-2 rounded-full bg-gray-100 dark:bg-gray-800 px-3 py-1 mb-4">
+    <Typography variant="body-sm">Sincronizado con Google Calendar</Typography>
+  </div>
+);
+
+export const HeroSection = () => {
+  const features = [
+    "Recordatorios automáticos por WhatsApp",
+    "Analytics y reportes detallados",
+    "Agenda inteligente sincronizada",
+  ];
+
+  return (
+    <section className="w-full py-16 md:py-24">
+      <div className="container mx-auto px-4">
+        {/* Usamos Grid para el layout de dos columnas en escritorio */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
+          <div className="text-center md:text-left">
+            <SyncPill />
+            <Typography variant="display" as="h1">
+              Gestiona tu agenda
+              <span className="text-blue-600 dark:text-blue-500">
+                {" "}
+                de forma inteligente
+              </span>
+            </Typography>
+            <Typography
+              variant="body-lg"
+              className="mt-6 max-w-xl mx-auto md:mx-0"
+            >
+              Automatiza recordatorios por WhatsApp, sincroniza tu calendario y
+              optimiza tu tiempo. La solución completa para profesionales
+              modernos.
+            </Typography>
+            <ul className="mt-8 space-y-4 text-left inline-block">
+              {features.map((feature, index) => (
+                <li key={index} className="flex items-center gap-3">
+                  <CheckCircle2 className="h-6 w-6 text-green-500" />
+                  <Typography variant="body-md" as="span">
+                    {feature}
+                  </Typography>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-10">
+              <Button>Empieza gratis</Button>
+            </div>
+          </div>
+          <div className="flex justify-center">
+            <img
+              src="{Image}" // Recuerda importar tu imagen
+              alt="Demostración de Agendux en un teléfono móvil"
+              className="w-full max-w-xs md:max-w-sm"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};

@@ -43,7 +43,7 @@ export const Typography: React.FC<TypographyProps> = ({
   const variantStyleMap: Record<TypographyVariant, string> = {
     display: 'font-display font-bold text-5xl md:text-7xl leading-tight text-gray-800 dark:text-white',
     
-    'heading-xl': 'font-display font-bold text-4xl md:text-5xl text-gray-800 dark:text-white',
+    'heading-xl': 'font-adineue font-display font-bold text-4xl md:text-5xl text-gray-800 dark:text-white',
     
     'heading-lg': 'font-sans font-bold text-3xl md:text-4xl text-gray-800 dark:text-white',
     

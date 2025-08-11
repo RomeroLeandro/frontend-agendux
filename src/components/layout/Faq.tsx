@@ -1,5 +1,5 @@
 import { Accordion } from '../ui/Accordion';
-import { Typography } from '../ui/Typografhy';
+import { Typography } from '../ui/Typography';
 
 function FaqPage() {
   const faqItems = [

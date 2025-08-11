@@ -1,5 +1,5 @@
 import { Card } from '../ui/Card';
-import { Typography } from '../ui/Typografhy';
+import { Typography } from '../ui/Typography';
 import { FeatureList } from '../ui/FeaturedList';
 import { Stethoscope } from 'lucide-react'; 
 
