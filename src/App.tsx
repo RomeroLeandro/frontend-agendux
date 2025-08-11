@@ -5,6 +5,7 @@ import { ForWhomSection } from "./components/pages/ForWhomSection";
 import { HowItWorksSection } from "./components/pages/HowItWorksSection";
 import { FeaturesSection } from "./components/pages/FeaturesSection";
 import { BenefitsSection } from "./components/pages/BenefitsSection";
+import { AutoSchedulingSection } from "./components/pages/AutoSchedulingSection";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <HowItWorksSection />
         <FeaturesSection />
         <BenefitsSection />
+        <AutoSchedulingSection />
       </main>
     </>
   );
