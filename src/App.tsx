@@ -10,6 +10,7 @@ import HelpCard from "./components/layout/HelpCard";
 import { HeroSection } from "./components/pages/HeroSection";
 import { ForWhomSection } from "./components/pages/ForWhomSection";
 import { HowItWorksSection } from "./components/pages/HowItWorksSection";
+import { FeaturesSection } from "./components/pages/FeaturesSection";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <HeroSection />
         <ForWhomSection />
         <HowItWorksSection />
+        <FeaturesSection />
         <div className="container mx-auto px-4 py-20">
           <Typography variant="display">Bienvenido a Agendux</Typography>
           <Typography variant="heading-xl">Bienvenido a Agendux</Typography>
