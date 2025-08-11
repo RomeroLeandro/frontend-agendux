@@ -40,7 +40,7 @@ export const ForWhomSection = () => {
   return (
     <section className="py-16 md:py-24 bg-gray-50 dark:bg-gray-900/50">
       <div className="container mx-auto px-4 text-center">
-        <Typography variant="badge">¿PARA QUIÉNES?</Typography>
+        <Typography variant="badge">¿PARA QUIÉN ES?</Typography>
         <Typography variant="heading-lg" as="h2" className="mt-4">
           Ideal para profesionales que dependen de citas
         </Typography>

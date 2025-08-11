@@ -1,9 +1,11 @@
 import { Typography } from "../ui/Typography";
 import { Button } from "../ui/Button";
 import { CheckCircle2 } from "lucide-react";
+import CalendarIcon from "../../assets/CalendarIcon.webp"; // Asegúrate de tener este ícono en tu carpeta de assets
 
 const SyncPill = () => (
-  <div className="inline-flex items-center gap-2 rounded-full bg-gray-100 dark:bg-gray-800 px-3 py-1 mb-4">
+  <div className="inline-flex items-center gap-2 rounded-full dark:bg-gray-800 px-3 py-1 mb-4">
+    <img src={CalendarIcon} alt="Logo de Google Calendar" className="size-6" />
     <Typography variant="body-sm">Sincronizado con Google Calendar</Typography>
   </div>
 );

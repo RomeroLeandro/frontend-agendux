@@ -8,7 +8,8 @@ import CardIngresos from "./components/layout/CardIngresos";
 import Faq from "./components/layout/Faq";
 import HelpCard from "./components/layout/HelpCard";
 import { HeroSection } from "./components/pages/HeroSection";
-import  {ForWhomSection}  from "./components/pages/ForWhomSection";
+import { ForWhomSection } from "./components/pages/ForWhomSection";
+import { HowItWorksSection } from "./components/pages/HowItWorksSection";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <main>
         <HeroSection />
         <ForWhomSection />
+        <HowItWorksSection />
         <div className="container mx-auto px-4 py-20">
           <Typography variant="display">Bienvenido a Agendux</Typography>
           <Typography variant="heading-xl">Bienvenido a Agendux</Typography>
