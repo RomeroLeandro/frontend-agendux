@@ -1,7 +1,7 @@
 import { Typography } from "../ui/Typography";
 import { Button } from "../ui/Button";
 import {
-  CheckCircle2,
+  CircleCheckBig,
   CircleDot,
   AlertTriangle,
   MessageSquare,
@@ -66,19 +66,19 @@ export const HowItWorksSection = () => {
                 </Typography>
                 <div className="space-y-4">
                   <StepListItem
-                    icon={<CheckCircle2 className="text-green-500" />}
+                    icon={<CircleCheckBig className="text-green-500" />}
                     title="Integración con Google Calendar"
                   >
                     Sincroniza automáticamente tus citas existentes.
                   </StepListItem>
                   <StepListItem
-                    icon={<CheckCircle2 className="text-green-500" />}
+                    icon={<CircleCheckBig className="text-green-500" />}
                     title="Acceso desde cualquier dispositivo"
                   >
                     Gestiona tu agenda desde móvil, tablet o computadora.
                   </StepListItem>
                   <StepListItem
-                    icon={<CheckCircle2 className="text-green-500" />}
+                    icon={<CircleCheckBig className="text-green-500" />}
                     title="Interfaz intuitiva"
                   >
                     Crea citas en segundos con nuestra interfaz fácil de usar.
@@ -110,7 +110,7 @@ export const HowItWorksSection = () => {
                     mensaje personalizado.
                   </StepListItem>
                   <StepListItem
-                    icon={<CheckCircle2 className="text-green-500" />}
+                    icon={<CircleCheckBig className="text-green-500" />}
                     title="Cita confirmada"
                   >
                     Tu cliente confirma con un simple clic y tu calendario se

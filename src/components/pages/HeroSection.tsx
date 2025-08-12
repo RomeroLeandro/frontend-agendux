@@ -1,6 +1,6 @@
 import { Typography } from "../ui/Typography";
 import { Button } from "../ui/Button";
-import { CheckCircle2 } from "lucide-react";
+import { CircleCheckBig } from "lucide-react";
 import GoogleCalendarIcon from "../../assets/CalendarIcon.webp";
 import { MessageSquareIcon, CalendarIcon } from "lucide-react";
 import MovilHero from "../../assets/MovilHero.webp";
@@ -20,8 +20,8 @@ const TopMiniCard = () => (
   <div className="absolute top-4 left-4 bg-white rounded-md shadow-md p-2 flex items-center text-xs">
     <MessageSquareIcon className="w-4 h-4 mr-1 text-green-500" />
     <div className="flex flex-col">
-      <span className="ml-1 font-semibold">Mensaje enviado</span>
-      <span className="ml-1 font-semibold">95% confirmación</span>
+      <span className="ml-1 font-semibold text-gray-800">Mensaje enviado</span>
+      <span className="ml-1 font-semibold text-gray-800">95% confirmación</span>
     </div>
   </div>
 );
@@ -30,8 +30,8 @@ const BottomMiniCard = () => (
   <div className="absolute bottom-4 right-4 bg-white rounded-md shadow-md p-2 flex items-center text-xs">
     <CalendarIcon className="w-4 h-4 mr-1 text-blue-500" />
     <div className="flex flex-col">
-      <span className="ml-1 font-semibold">Cita confirmadao</span>
-      <span className="ml-1 font-semibold">Automáticamente</span>
+      <span className="ml-1 font-semibold text-gray-800">Cita confirmadao</span>
+      <span className="ml-1 font-semibold text-gray-800">Automáticamente</span>
     </div>
   </div>
 );
@@ -67,7 +67,7 @@ export const HeroSection = () => {
             <ul className="mt-8 space-y-4 text-left inline-block">
               {features.map((feature, index) => (
                 <li key={index} className="flex items-center gap-3">
-                  <CheckCircle2 className="h-6 w-6 text-green-500" />
+                  <CircleCheckBig className="h-6 w-6 text-green-500" />
                   <Typography variant="body-md" as="span">
                     {feature}
                   </Typography>
