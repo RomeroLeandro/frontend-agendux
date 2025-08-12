@@ -7,6 +7,7 @@ import { FeaturesSection } from "./components/pages/FeaturesSection";
 import { BenefitsSection } from "./components/pages/BenefitsSection";
 import { AutoSchedulingSection } from "./components/pages/AutoSchedulingSection";
 import { PricingSection } from "./components/pages/PricingSection";
+import { FaqSection } from "./components/pages/FaqSection";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <BenefitsSection />
         <AutoSchedulingSection />
         <PricingSection />
+        <FaqSection />
       </main>
     </>
   );
