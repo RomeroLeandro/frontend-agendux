@@ -1,12 +1,38 @@
 import { Typography } from "../ui/Typography";
 import { Button } from "../ui/Button";
 import { CheckCircle2 } from "lucide-react";
-import CalendarIcon from "../../assets/CalendarIcon.webp"; // Asegúrate de tener este ícono en tu carpeta de assets
+import GoogleCalendarIcon from "../../assets/CalendarIcon.webp";
+import { MessageSquareIcon, CalendarIcon } from "lucide-react";
+import MovilHero from "../../assets/MovilHero.webp";
 
 const SyncPill = () => (
   <div className="inline-flex items-center gap-2 rounded-full dark:bg-gray-800 px-3 py-1 mb-4">
-    <img src={CalendarIcon} alt="Logo de Google Calendar" className="size-6" />
+    <img
+      src={GoogleCalendarIcon}
+      alt="Logo de Google Calendar"
+      className="size-6"
+    />
     <Typography variant="body-sm">Sincronizado con Google Calendar</Typography>
+  </div>
+);
+
+const TopMiniCard = () => (
+  <div className="absolute top-4 left-4 bg-white rounded-md shadow-md p-2 flex items-center text-xs">
+    <MessageSquareIcon className="w-4 h-4 mr-1 text-green-500" />
+    <div className="flex flex-col">
+      <span className="ml-1 font-semibold">Mensaje enviado</span>
+      <span className="ml-1 font-semibold">95% confirmación</span>
+    </div>
+  </div>
+);
+
+const BottomMiniCard = () => (
+  <div className="absolute bottom-4 right-4 bg-white rounded-md shadow-md p-2 flex items-center text-xs">
+    <CalendarIcon className="w-4 h-4 mr-1 text-blue-500" />
+    <div className="flex flex-col">
+      <span className="ml-1 font-semibold">Cita confirmadao</span>
+      <span className="ml-1 font-semibold">Automáticamente</span>
+    </div>
   </div>
 );
 
@@ -20,7 +46,6 @@ export const HeroSection = () => {
   return (
     <section className="w-full py-16 md:py-24">
       <div className="container mx-auto px-4">
-        {/* Usamos Grid para el layout de dos columnas en escritorio */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
           <div className="text-center md:text-left">
             <SyncPill />
@@ -53,12 +78,22 @@ export const HeroSection = () => {
               <Button>Empieza gratis</Button>
             </div>
           </div>
-          <div className="flex justify-center">
-            <img
-              src="{Image}" // Recuerda importar tu imagen
-              alt="Demostración de Agendux en un teléfono móvil"
-              className="w-full max-w-xs md:max-w-sm"
-            />
+          <div className="relative flex justify-center items-center">
+            {/* 1. El Resplandor (div en el fondo) */}
+            <div className="relative flex justify-center items-center">
+              <img
+                src={MovilHero}
+                alt="Demostración de Agendux en un teléfono móvil"
+                className="
+                w-full max-w-xs md:max-w-sm relative z-10
+                [filter:drop-shadow(0_20px_25px_rgba(99,102,241,0.5))_drop-shadow(0_10px_15px_rgba(59,130,246,0.6))]
+              "
+              />
+              <div className="absolute inset-0 z-20">
+                <TopMiniCard />
+                <BottomMiniCard />
+              </div>
+            </div>
           </div>
         </div>
       </div>

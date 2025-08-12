@@ -9,6 +9,7 @@ import { AutoSchedulingSection } from "./components/pages/AutoSchedulingSection"
 import { PricingSection } from "./components/pages/PricingSection";
 import { FaqSection } from "./components/pages/FaqSection";
 import { WhatsAppCtaSection } from "./components/pages/WhatsAppCtaSection";
+import { Footer } from "./components/layout/Footer";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <FaqSection />
         <WhatsAppCtaSection />
       </main>
+      <Footer />
     </>
   );
 }
