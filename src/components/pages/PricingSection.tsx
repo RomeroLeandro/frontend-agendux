@@ -78,7 +78,7 @@ export const PricingSection = () => {
                 </Typography>
                 <div className="my-4">
                   <span className="text-5xl font-bold text-gray-900 dark:text-white">
-                    ${plan.price}
+                    USD{plan.price}
                   </span>
                   <span className="text-lg text-gray-500 dark:text-gray-400">
                     /mes
