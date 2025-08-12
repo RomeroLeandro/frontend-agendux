@@ -6,6 +6,7 @@ import { HowItWorksSection } from "./components/pages/HowItWorksSection";
 import { FeaturesSection } from "./components/pages/FeaturesSection";
 import { BenefitsSection } from "./components/pages/BenefitsSection";
 import { AutoSchedulingSection } from "./components/pages/AutoSchedulingSection";
+import { PricingSection } from "./components/pages/PricingSection";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <FeaturesSection />
         <BenefitsSection />
         <AutoSchedulingSection />
+        <PricingSection />
       </main>
     </>
   );
