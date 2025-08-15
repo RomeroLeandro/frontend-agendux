@@ -30,7 +30,7 @@ export const Footer = () => {
       <div className="container mx-auto px-4 py-12 md:py-16">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           <div className="col-span-2 md:col-span-1">
-            <img src={Logo} alt="Logo de Agendux" className="h-8" />
+            <img src={Logo} alt="Logo de Agendux" className="h-10" />
             <Typography variant="body-md" className="mt-4 max-w-xs">
               App para Agendar, Confirmar y Recordar citas por WhatsApp.
             </Typography>

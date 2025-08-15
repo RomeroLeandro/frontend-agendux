@@ -6,6 +6,7 @@ import {
   AlertTriangle,
   MessageSquare,
 } from "lucide-react";
+import Phones from "../../assets/Phones.webp";
 
 const StepListItem = ({
   icon,
@@ -37,8 +38,10 @@ export const HowItWorksSection = () => {
   return (
     <section className="py-16 md:py-24">
       <div className="container mx-auto px-4">
-        <div text-center max-w-3xl mx-auto>
-          <Typography variant="badge">CÓMO FUNCIONA</Typography>
+        <div className="text-center max-w-3xl mx-auto">
+          <Typography variant="badge" id="comoFunciona">
+            CÓMO FUNCIONA
+          </Typography>
           <Typography variant="heading-xl" as="h2" className="mt-4">
             La forma más simple de agendar y confirmar citas
           </Typography>
@@ -51,10 +54,10 @@ export const HowItWorksSection = () => {
           <div className="space-y-12">
             <div className="flex">
               <div className="flex flex-col items-center mr-6">
-                <div className="flex items-center justify-center w-10 h-10 bg-gray-200 dark:bg-gray-700 rounded-full text-lg font-bold">
+                <div className="flex items-center justify-center w-10 h-10 bg-blue-100 text-blue-primary dark:bg-gray-700 rounded-full text-lg font-bold">
                   1
                 </div>
-                <div className="w-px h-full bg-gray-200 dark:bg-gray-700"></div>
+                <div className="w-px h-full "></div>
               </div>
               <div className="space-y-6">
                 <Typography variant="heading-lg" as="h3">
@@ -88,7 +91,7 @@ export const HowItWorksSection = () => {
             </div>
             <div className="flex">
               <div className="flex flex-col items-center mr-6">
-                <div className="flex items-center justify-center w-10 h-10 bg-gray-200 dark:bg-gray-700 rounded-full text-lg font-bold">
+                <div className="flex items-center justify-center w-10 h-10 bg-blue-100 text-blue-primary dark:bg-gray-700 rounded-full text-lg font-bold">
                   2
                 </div>
               </div>
@@ -135,9 +138,9 @@ export const HowItWorksSection = () => {
           </div>
           <div className="flex justify-center">
             <img
-              src=""
+              src={Phones}
               alt="Tres teléfonos mostrando el flujo de Agendux"
-              className="w-full max-w-md lg:max-w-lg"
+              className="w-full max-w-md lg:max-w-lg [filter:drop-shadow(0_15px_20px_rgba(99,102,241,0.5))_drop-shadow(0_10px_15px_rgba(59,130,246,0.6))]"
             />
           </div>
         </div>

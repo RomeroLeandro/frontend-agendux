@@ -34,14 +34,16 @@ const faqData = [
 
 export const FaqSection = () => {
   return (
-    <section className="py-16 md:py-24 bg-white dark:bg-gray-900">
+    <section className="py-16 md:py-24">
       <div className="container mx-auto px-4">
         {/* --- Layout principal de 2 columnas --- */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-start">
           {/* --- Columna Izquierda: Título y Tarjeta de Ayuda --- */}
           <div className="flex flex-col gap-8">
             <div>
-              <Typography variant="badge">FAQ</Typography>
+              <Typography variant="badge" id="FAQ">
+                FAQ
+              </Typography>
               <Typography variant="heading-xl" as="h2" className="mt-4">
                 Preguntas
                 <span className="text-blue-600 dark:text-blue-500">
@@ -54,7 +56,7 @@ export const FaqSection = () => {
                 cómo puede ayudarte a gestionar tus citas.
               </Typography>
             </div>
-            <Card className="bg-gray-50 dark:bg-gray-800">
+            <Card className="bg-gray-50 dark:bg-bg-dark-secondary border border-gray-200">
               <div className="flex items-center">
                 <MessageSquare className="h-6 w-6 mr-3 text-blue-600 dark:text-blue-400" />
                 <Typography variant="heading-md" as="h3">

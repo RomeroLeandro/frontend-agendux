@@ -3,7 +3,7 @@ import { Button } from "../ui/Button";
 
 export const CtaBanner = () => {
   return (
-    <section className="bg-blue-50 dark:bg-gray-800 rounded-3xl p-8 md:p-16">
+    <section className="bg-blue-100 dark:bg-gray-800 rounded-3xl p-8 md:p-16">
       <div className="text-center flex flex-col items-center">
         <Typography variant="heading-lg" as="h2">
           ¿Listo para optimizar tu agenda?

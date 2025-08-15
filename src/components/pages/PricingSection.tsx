@@ -2,11 +2,12 @@ import { Card } from "../ui/Card";
 import { FeatureList } from "../ui/FeaturedList";
 import { Typography } from "../ui/Typography";
 import { Button } from "../ui/Button";
+import { useState } from "react";
 
 const plansData = [
   {
     name: "Plan Básico",
-    price: "15",
+    price: { monthly: "15", annual: "150" },
     description:
       "Perfecto para consultorios pequeños y profesionales que empiezan.",
     features: [
@@ -20,7 +21,7 @@ const plansData = [
   },
   {
     name: "Plan Profesional",
-    price: "30",
+    price: { monthly: "30", annual: "300" },
     description: "Para clínicas y negocios establecidos que buscan crecer.",
     features: [
       "Todo lo del Plan Básico",
@@ -33,7 +34,7 @@ const plansData = [
   },
   {
     name: "Plan Empresa",
-    price: "50",
+    price: { monthly: "50", annual: "500" },
     description:
       "Soluciones a medida para grandes equipos y múltiples locales.",
     features: [
@@ -48,12 +49,17 @@ const plansData = [
 ];
 
 export const PricingSection = () => {
+  const [billingCycle, setBillingCycle] = useState<"monthly" | "annual">(
+    "monthly"
+  );
   return (
-    <section className="py-16 md:py-24 bg-gray-50 dark:bg-gray-900/50">
+    <section className="py-16 md:py-24">
       <div className="container mx-auto px-4">
         {/* --- Cabecera de la Sección --- */}
         <div className="text-center max-w-3xl mx-auto">
-          <Typography variant="badge">PLANES</Typography>
+          <Typography variant="badge" id="planes">
+            PLANES
+          </Typography>
           <Typography variant="heading-xl" as="h2" className="mt-4">
             Planes que se adaptan al tamaño de tu negocio
           </Typography>
@@ -62,13 +68,44 @@ export const PricingSection = () => {
             Siempre puedes cambiarlo más adelante.
           </Typography>
         </div>
-
+        <div className="flex justify-center items-center mt-10">
+          <div className="relative flex items-center p-1 bg-gray-200 dark:bg-gray-700 rounded-full">
+            <button
+              onClick={() => setBillingCycle("monthly")}
+              className={`relative px-6 py-2 text-sm font-semibold rounded-full transition-colors z-10 ${
+                billingCycle === "monthly"
+                  ? "text-white"
+                  : "text-gray-600 dark:text-gray-300"
+              }`}
+            >
+              Mensual
+            </button>
+            <button
+              onClick={() => setBillingCycle("annual")}
+              className={`relative px-6 py-2 text-sm font-semibold rounded-full transition-colors z-10 ${
+                billingCycle === "annual"
+                  ? "text-white"
+                  : "text-gray-600 dark:text-gray-300"
+              }`}
+            >
+              Anual
+            </button>
+            {/* Fondo que se desliza */}
+            <div
+              className={`absolute top-1 h-10 w-1/2 bg-blue-600 rounded-full shadow-md transition-transform duration-300 ease-in-out ${
+                billingCycle === "monthly"
+                  ? "transform translate-x-0"
+                  : "transform translate-x-full"
+              }`}
+              style={{ left: "2px", right: "2px", width: "calc(50% - 4px)" }}
+            ></div>
+          </div>
+        </div>
         {/* --- Grid Responsivo para los 3 Planes --- */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-12 items-start">
           {plansData.map((plan) => (
             <Card
               key={plan.name}
-              // Aplicamos la variante 'featured' dinámicamente
               variant={plan.isFeatured ? "featured" : "default"}
               className="flex flex-col"
             >
@@ -76,14 +113,20 @@ export const PricingSection = () => {
                 <Typography variant="heading-md" as="h3">
                   {plan.name}
                 </Typography>
+
+                {/* 👇 4. Mostramos el precio según el estado 'billingCycle' */}
                 <div className="my-4">
                   <span className="text-5xl font-bold text-gray-900 dark:text-white">
-                    USD{plan.price}
+                    $
+                    {billingCycle === "monthly"
+                      ? plan.price.monthly
+                      : plan.price.annual}
                   </span>
                   <span className="text-lg text-gray-500 dark:text-gray-400">
-                    /mes
+                    /{billingCycle === "monthly" ? "mes" : "año"}
                   </span>
                 </div>
+
                 <Typography variant="body-md">{plan.description}</Typography>
                 <FeatureList items={plan.features} />
               </div>

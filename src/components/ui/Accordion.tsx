@@ -1,6 +1,6 @@
-import React from 'react';
-import { Disclosure, Transition } from '@headlessui/react';
-import { ChevronDown } from 'lucide-react';
+import React from "react";
+import { Disclosure, Transition } from "@headlessui/react";
+import { ChevronDown } from "lucide-react";
 
 interface AccordionItem {
   question: string;
@@ -15,13 +15,17 @@ export const Accordion: React.FC<AccordionProps> = ({ items }) => {
   return (
     <div className="w-full max-w-2xl mx-auto space-y-4">
       {items.map((item, index) => (
-        <Disclosure key={index} as="div" className="transition-all duration-300">
+        <Disclosure
+          key={index}
+          as="div"
+          className="transition-all duration-300"
+        >
           {({ open }) => (
             <div
               className={`rounded-2xl shadow-sm ${
                 open
-                  ? 'bg-blue-50 dark:bg-gray-800 border border-blue-200 dark:border-gray-700'
-                  : 'bg-white dark:bg-gray-800'
+                  ? "bg-white dark:bg-bg-dark-secondary border border-gray-200 dark:border-gray-700"
+                  : "bg-white dark:bg-bg-dark-secondary border border-gray-200 dark:border-gray-700"
               }`}
             >
               <Disclosure.Button className="flex justify-between items-center w-full px-6 py-4 text-left">
@@ -30,7 +34,7 @@ export const Accordion: React.FC<AccordionProps> = ({ items }) => {
                 </span>
                 <ChevronDown
                   className={`h-6 w-6 text-gray-500 dark:text-gray-400 transform transition-transform duration-300 ${
-                    open ? 'rotate-180 text-blue-600' : ''
+                    open ? "rotate-180 text-blue-600" : ""
                   }`}
                 />
               </Disclosure.Button>

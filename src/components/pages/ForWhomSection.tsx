@@ -5,25 +5,25 @@ import { Typography } from "../ui/Typography";
 import { FeatureList } from "../ui/FeaturedList";
 const professionalsData = [
   {
-    icon: <Stethoscope size={28} />,
+    icon: <Stethoscope size={48} />,
     title: "Médicos y clínicas",
     description: "Gestiona pacientes con confirmaciones automáticas",
     features: ["Confirmación automática", "Recordatorios personalizados"],
   },
   {
-    icon: <Scissors size={28} />,
+    icon: <Scissors size={48} />,
     title: "Estéticas y peluquerías",
     description: "Organiza tu agenda y envía recordatorios a tus clientes",
     features: ["Confirmación automática", "Recordatorios personalizados"],
   },
   {
-    icon: <BrainCircuit size={28} />,
+    icon: <BrainCircuit size={48} />,
     title: "Psicólogos y terapeutas",
     description: "Gestiona mejor e informa a tus pacientes",
     features: ["Confirmación automática", "Recordatorios personalizados"],
   },
   {
-    icon: <Wrench size={28} />,
+    icon: <Wrench size={48} />,
     title: "Servicios y reparaciones",
     description: "Coordina visitas técnicas y confirma disponibilidad",
     features: ["Confirmación automática", "Recordatorios personalizados"],
@@ -31,14 +31,14 @@ const professionalsData = [
 ];
 
 const IconWrapper = ({ children }: { children: React.ReactNode }) => (
-  <div className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400">
+  <div className="mb-4 inline-flex h-20 w-20 items-center justify-center rounded-2xl bg-indigo-100 opacity-50 text-blue-primary ">
     {children}
   </div>
 );
 
 export const ForWhomSection = () => {
   return (
-    <section className="py-16 md:py-24 bg-gray-50 dark:bg-gray-900/50">
+    <section className="py-16 md:py-24">
       <div className="container mx-auto px-4 text-center">
         <Typography variant="badge">¿PARA QUIÉN ES?</Typography>
         <Typography variant="heading-lg" as="h2" className="mt-4">

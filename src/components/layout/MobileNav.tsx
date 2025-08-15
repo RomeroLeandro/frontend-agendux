@@ -1,9 +1,9 @@
-import React from 'react';
-import { useTheme } from '../../hooks/useTheme'; 
-import { Sun, Moon } from 'lucide-react';
-import { X } from 'lucide-react';
-import { Button } from '../ui/Button';
-import Logo from '../../assets/Logo.webp';
+import React from "react";
+import { useTheme } from "../../hooks/useTheme";
+import { Sun, Moon } from "lucide-react";
+import { X } from "lucide-react";
+import { Button } from "../ui/Button";
+import Logo from "../../assets/Logo.webp";
 
 interface MobileNavProps {
   isOpen: boolean;
@@ -11,10 +11,10 @@ interface MobileNavProps {
 }
 
 const navLinks = [
-    { href: '#', label: 'Cómo funciona' },
-    { href: '#', label: 'Precio' },
-    { href: '#', label: 'FAQ' },
-    { href: '#', label: 'Contacto' },
+  { href: "#comoFunciona", label: "Cómo funciona" },
+  { href: "#planes", label: "Planes" },
+  { href: "#FAQ", label: "FAQ" },
+  { href: "#", label: "Contacto" },
 ];
 
 export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose }) => {
@@ -24,19 +24,27 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose }) => {
   }
 
   return (
-    <div className="fixed inset-0 z-50 bg-white dark:bg-gray-900 lg:hidden" aria-hidden={!isOpen}>
+    <div
+      className="fixed inset-0 z-50 bg-bg dark:bg-bg-dark lg:hidden"
+      aria-hidden={!isOpen}
+    >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
-          <img src={Logo} alt="Logo de Agendux" className='h-8' />
+          <img src={Logo} alt="Logo de Agendux" className="h-10" />
           <button onClick={onClose} aria-label="Cerrar menú">
             <X className="h-6 w-6 text-gray-800 dark:text-gray-200" />
           </button>
         </div>
       </div>
-      <div className="flex flex-col items-center justify-center space-y-8 mt-10">
+      <div className="flex flex-col items-center justify-center space-y-8 pt-8 pb-16 bg-bg dark:bg-bg-dark">
         <nav className="flex flex-col items-center space-y-6">
           {navLinks.map((link) => (
-            <a key={link.label} href={link.href} onClick={onClose} className="text-2xl text-gray-800 dark:text-gray-200">
+            <a
+              key={link.label}
+              href={link.href}
+              onClick={onClose}
+              className=" font-poppins text-gray-600 hover:text-blue-500 dark:text-gray-300 dark:hover:text-blue-400"
+            >
               {link.label}
             </a>
           ))}
@@ -45,18 +53,20 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose }) => {
           <button
             onClick={toggleTheme}
             aria-label="Cambiar tema"
-            className="flex items-center gap-4 p-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
+            className="flex items-center gap-4 p-2 hover:text-blue-500"
           >
-            {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+            {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
           </button>
 
-          <a href="#" onClick={onClose} className="font-semibold text-xl text-gray-600 dark:text-gray-300">
+          <a
+            href="#"
+            onClick={onClose}
+            className="font-poppins text-gray-600 hover:text-blue-500 dark:text-gray-300 dark:hover:text-blue-400"
+          >
             Iniciar sesión
           </a>
-          
-          <Button className="w-full">
-            Crear Cuenta Gratis
-          </Button>
+
+          <Button>Crear Cuenta Gratis</Button>
         </div>
       </div>
     </div>

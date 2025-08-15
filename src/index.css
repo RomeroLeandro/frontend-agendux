@@ -1,53 +1,58 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 
+html {
+  scroll-behavior: smooth; /* Opcional: añade un desplazamiento suave */
+  scroll-padding-top: 8rem; /* El alto de tu header (h-20 es 5rem) + un poco de margen */
+}
+
 @font-face {
-  font-family: 'adineue PRO';
-  src: url(../public/fonts/adineue-PRO.woff2) format('woff2');
+  font-family: "adineue PRO";
+  src: url(../public/fonts/adineue-PRO.woff2) format("woff2");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'adineue PRO Bold';
-  src: url(../public/fonts/adineue-PRO-Bold.woff2) format('woff2');
+  font-family: "adineue PRO Bold";
+  src: url(../public/fonts/adineue-PRO-Bold.woff2) format("woff2");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Poppins';
-  src: url(../public/fonts/Poppins.woff2) format('woff2');
+  font-family: "Poppins";
+  src: url(../public/fonts/Poppins-Regular.woff2) format("woff2");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 
 @layer base {
-  body{
+  body {
     @apply bg-bg dark:bg-bg-dark text-font-primary dark:text-font-primary-dark;
   }
 }
 @theme {
-  --color-bg: #E5E7EB;
-  --color-bg-dark: #1E1E1E;
+  --color-bg: #ffffff;
+  --color-bg-dark: #1e1e1e;
+  --color-bg-dark-secondary: #28282a;
   --container-8xl: 1440px;
 
   --color-font-primary: #111827;
   --color-font-secondary: #374151;
 
-  --color-font-primary-dark: #F3F4F6;
-  --color-font-secondary-dark: #E5E7EB;
+  --color-font-primary-dark: #f3f4f6;
+  --color-font-secondary-dark: #e5e7eb;
 
-  --color-link: #254AB6;
+  --color-link: #254ab6;
 
-  --color-blue-primary: #3161DD;
-  --color-blue-secondary: #528DFF;
+  --color-blue-primary: #3161dd;
+  --color-blue-secondary: #528dff;
 
-  --font-adineue: 'adineue PRO', sans-serif;
-  --font-adineue-bold: 'adineue PRO Bold', sans-serif;
-  --font-poppins: 'Poppins', sans-serif;
+  --font-adineue: "adineue PRO", sans-serif;
+  --font-adineue-bold: "adineue PRO Bold", sans-serif;
+  --font-poppins: "Poppins", sans-serif;
 }
-
