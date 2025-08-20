@@ -4,10 +4,15 @@ import { Sun, Moon } from "lucide-react";
 import { X } from "lucide-react";
 import { Button } from "../ui/Button";
 import Logo from "../../assets/Logo.webp";
+import { logoutUser } from "../../services/authService";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 interface MobileNavProps {
   isOpen: boolean;
   onClose: () => void;
+  isAuthenticated: boolean;
+  onLogout: () => void;
 }
 
 const navLinks = [
@@ -17,8 +22,26 @@ const navLinks = [
   { href: "#", label: "Contacto" },
 ];
 
-export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose }) => {
+export const MobileNav: React.FC<MobileNavProps> = ({
+  isOpen,
+  onClose,
+  isAuthenticated,
+  onLogout,
+}) => {
   const [theme, toggleTheme] = useTheme();
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    try {
+      await logoutUser();
+    } catch (error) {
+      console.error("Error en el logout de la API:", error);
+    } finally {
+      onLogout(); // Llama a la función del contexto
+      onClose(); // Cierra el menú móvil
+      navigate("/"); // Redirige a la home
+    }
+  };
   if (!isOpen) {
     return null;
   }
@@ -58,15 +81,34 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose }) => {
             {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
           </button>
 
-          <a
-            href="#"
-            onClick={onClose}
-            className="font-poppins text-gray-600 hover:text-blue-500 dark:text-gray-300 dark:hover:text-blue-400"
-          >
-            Iniciar sesión
-          </a>
-
-          <Button>Crear Cuenta Gratis</Button>
+          {isAuthenticated ? (
+            <>
+              <Link
+                to="/dashboard"
+                onClick={onClose}
+                className="text-2xl font-semibold text-gray-700 dark:text-gray-300 hover:text-blue-600"
+              >
+                Dashboard
+              </Link>
+              <Button
+                onClick={handleLogout}
+                className="text-2xl font-semibold text-red-500 hover:text-red-700"
+              >
+                Cerrar Sesión
+              </Button>
+            </>
+          ) : (
+            <>
+              <Link
+                to="/login"
+                onClick={onClose}
+                className="text-2xl font-semibold text-blue-600 hover:text-blue-800"
+              >
+                Iniciar Sesión
+              </Link>
+              <Button>Empieza Ahora</Button>
+            </>
+          )}
         </div>
       </div>
     </div>

@@ -5,19 +5,27 @@ import { MobileNav } from "./MobileNav";
 
 import Logo from "../../assets/Logo.webp";
 
-export const Header = () => {
+interface HeaderProps {
+  isAuthenticated: boolean;
+  onLogout: () => void;
+}
+
+export const Header: React.FC<HeaderProps> = ({
+  isAuthenticated,
+  onLogout,
+}) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => setIsMenuOpen((prev) => !prev);
 
   return (
-    <header className="w-full backdrop-blur-sm sticky top-0 z-40 border-b border-gray-200 dark:border-gray-800">
+    <header className="w-full backdrop-blur-sm sticky top-0 z-40 border-b border-gray-200 dark:bg-bg-dark dark:border-gray-800">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           <a href="#inicio">
             <img src={Logo} alt="Logo de Agendux" className="h-10" />
           </a>
-          <DesktopNav />
+          <DesktopNav isAuthenticated={isAuthenticated} onLogout={onLogout} />
           <div className="lg:hidden">
             {!isMenuOpen && (
               <button
@@ -31,7 +39,12 @@ export const Header = () => {
           </div>
         </div>
       </div>
-      <MobileNav isOpen={isMenuOpen} onClose={toggleMenu} />
+      <MobileNav
+        isOpen={isMenuOpen}
+        onClose={toggleMenu}
+        isAuthenticated={isAuthenticated}
+        onLogout={onLogout}
+      />
     </header>
   );
 };
