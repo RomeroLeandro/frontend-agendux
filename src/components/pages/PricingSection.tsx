@@ -3,55 +3,20 @@ import { FeatureList } from "../ui/FeaturedList";
 import { Typography } from "../ui/Typography";
 import { Button } from "../ui/Button";
 import { useState } from "react";
-
-const plansData = [
-  {
-    name: "Plan Básico",
-    price: { monthly: "15", annual: "150" },
-    description:
-      "Perfecto para consultorios pequeños y profesionales que empiezan.",
-    features: [
-      "7 días de prueba gratis",
-      "Hasta 100 citas mensuales",
-      "Confirmación por WhatsApp",
-      "Integración con Google Calendar",
-      "Autoagenda básica",
-    ],
-    isFeatured: false,
-  },
-  {
-    name: "Plan Profesional",
-    price: { monthly: "30", annual: "300" },
-    description: "Para clínicas y negocios establecidos que buscan crecer.",
-    features: [
-      "Todo lo del Plan Básico",
-      "Hasta 250 citas mensuales",
-      "Autoagenda personalizada",
-      "Reportes básicos",
-      "Soporte prioritario",
-    ],
-    isFeatured: true,
-  },
-  {
-    name: "Plan Empresa",
-    price: { monthly: "50", annual: "500" },
-    description:
-      "Soluciones a medida para grandes equipos y múltiples locales.",
-    features: [
-      "Todo lo del Plan Profesional",
-      "Citas ilimitadas",
-      "Múltiples calendarios",
-      "Reportes avanzados",
-      "API de integración",
-    ],
-    isFeatured: false,
-  },
-];
+import { usePlans } from "../../hooks/usePlans";
 
 export const PricingSection = () => {
   const [billingCycle, setBillingCycle] = useState<"monthly" | "annual">(
     "monthly"
   );
+  const { plans, loading, error } = usePlans();
+  if (loading) {
+    return <div className="text-center py-16">Cargando planes...</div>;
+  }
+  if (error) {
+    return <div className="text-center py-16 text-red-500">{error}</div>;
+  }
+
   return (
     <section className="py-16 md:py-24">
       <div className="container mx-auto px-4">
@@ -103,9 +68,9 @@ export const PricingSection = () => {
         </div>
         {/* --- Grid Responsivo para los 3 Planes --- */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-12 items-start">
-          {plansData.map((plan) => (
+          {plans.map((plan) => (
             <Card
-              key={plan.name}
+              key={plan.id}
               variant={plan.isFeatured ? "featured" : "default"}
               className="flex flex-col"
             >
@@ -117,7 +82,7 @@ export const PricingSection = () => {
                 {/* 👇 4. Mostramos el precio según el estado 'billingCycle' */}
                 <div className="my-4">
                   <span className="text-5xl font-bold text-gray-900 dark:text-white">
-                    $
+                    USD{" "}
                     {billingCycle === "monthly"
                       ? plan.price.monthly
                       : plan.price.annual}
@@ -130,6 +95,9 @@ export const PricingSection = () => {
                 <Typography variant="body-md">{plan.description}</Typography>
                 <FeatureList items={plan.features} />
               </div>
+              <Typography variant="body-sm" className="text-gray-500 mt-4">
+                Costo por recordatorio excedente: USD {plan.extraReminderCost}
+              </Typography>
               <Button fullWidth className="mt-6">
                 Empieza gratis
               </Button>
