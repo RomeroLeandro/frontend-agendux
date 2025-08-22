@@ -31,7 +31,7 @@ html {
 }
 
 @layer base {
-  body {
+  html {
     @apply bg-bg dark:bg-bg-dark text-font-primary dark:text-font-primary-dark;
   }
 }

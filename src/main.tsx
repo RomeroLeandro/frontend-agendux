@@ -4,8 +4,7 @@ import App from "./App.tsx";
 import "./index.css";
 import { AuthProvider } from "./context/AuthProvider.tsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { LoginPage } from "./components/pages/LoginPage.tsx";
-import { RegisterPage } from "./components/pages/RegisterPage.tsx";
+import { AuthPage } from "./components/pages/AuthPage.tsx";
 import { LandingPage } from "./components/pages/LandingPage.tsx"; // Tu página con los planes
 import { DashboardPage } from "./components/pages/DashboardPage.tsx";
 import { ProtectedRoute } from "./components/ProtectedRoute.tsx";
@@ -16,8 +15,7 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       { index: true, element: <LandingPage /> },
-      { path: "login", element: <LoginPage /> },
-      { path: "register", element: <RegisterPage /> },
+      { path: "auth", element: <AuthPage /> },
       {
         element: <ProtectedRoute />,
         children: [{ path: "dashboard", element: <DashboardPage /> }],

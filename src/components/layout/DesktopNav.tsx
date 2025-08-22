@@ -66,10 +66,10 @@ export const DesktopNav: React.FC<DesktopNavProps> = ({
           </>
         ) : (
           <>
-            <Link to="/login" className="...">
+            <Link to="/auth" className="...">
               Iniciar Sesión
             </Link>
-            <Link to="/register" className="...">
+            <Link to="/auth" className="...">
               <Button>Empieza Ahora</Button>
             </Link>
           </>

@@ -100,13 +100,15 @@ export const MobileNav: React.FC<MobileNavProps> = ({
           ) : (
             <>
               <Link
-                to="/login"
+                to="/auth"
                 onClick={onClose}
                 className="text-2xl font-semibold text-blue-600 hover:text-blue-800"
               >
                 Iniciar Sesión
               </Link>
-              <Button>Empieza Ahora</Button>
+              <Link to="/auth" className="...">
+                <Button>Empieza Ahora</Button>
+              </Link>
             </>
           )}
         </div>
