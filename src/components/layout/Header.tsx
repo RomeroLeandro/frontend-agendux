@@ -19,11 +19,11 @@ export const Header: React.FC<HeaderProps> = ({
   const toggleMenu = () => setIsMenuOpen((prev) => !prev);
 
   return (
-    <header className="w-full backdrop-blur-sm sticky top-0 z-40 border-b border-gray-200 dark:bg-bg-dark dark:border-gray-800">
+    <header className="flex items-center w-full backdrop-blur-sm h-18 sticky top-0 z-40 border-b border-gray-200 bg-bg dark:bg-bg-dark dark:border-gray-800">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between">
           <a href="#inicio">
-            <img src={Logo} alt="Logo de Agendux" className="h-10" />
+            <img src={Logo} alt="Logo de Agendux" className="h-8" />
           </a>
           <DesktopNav isAuthenticated={isAuthenticated} onLogout={onLogout} />
           <div className="lg:hidden">

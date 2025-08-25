@@ -28,7 +28,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({
   isAuthenticated,
   onLogout,
 }) => {
-  const [theme, toggleTheme] = useTheme();
+  const { theme, toggleTheme } = useTheme();
   const navigate = useNavigate();
 
   const handleLogout = async () => {

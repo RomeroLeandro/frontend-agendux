@@ -7,6 +7,7 @@ import {
   type Profession,
 } from "../../services/professionService";
 import { isAxiosError } from "axios";
+import Logo from "../../assets/Logo.webp";
 
 // Interfaz para los errores de validación de Laravel
 interface ValidationErrors {
@@ -93,10 +94,10 @@ export const AuthPage: React.FC = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100 p-4">
-      <div className="bg-white p-8 md:p-12 rounded-xl shadow-lg w-full max-w-lg">
-        <div className="text-center mb-8">
-          {/* Aquí podés poner tu logo */}
+    <div className="flex items-center justify-center min-h-screen bg-bg dark:bg-bg-dark p-4">
+      <div className="bg-bg dark:bg-bg-dark-secondary p-8 md:p-12 rounded-xl shadow-lg w-full max-w-lg">
+        <div className="text-center mb-8 flex flex-col items-center">
+          <img src={Logo} alt="Logo de Agendux" className="h-12" />
           <h1 className="text-3xl font-bold mt-4 text-gray-800">Bienvenido</h1>
           <p className="text-gray-500">
             Inicia sesión o crea tu cuenta para comenzar
@@ -104,12 +105,12 @@ export const AuthPage: React.FC = () => {
         </div>
 
         {/* --- Selector de Pestañas --- */}
-        <div className="flex bg-gray-100 rounded-lg p-1 mb-8">
+        <div className="flex bg-gray-300 dark:bg-bg-dark rounded-lg  mb-8">
           <button
             onClick={() => setAuthMode("login")}
             className={`w-1/2 py-2 rounded-md font-semibold transition-all duration-300 ${
               authMode === "login"
-                ? "bg-white shadow text-blue-600"
+                ? "bg-link shadow text-font-primary-dark"
                 : "text-gray-500"
             }`}
           >
@@ -119,7 +120,7 @@ export const AuthPage: React.FC = () => {
             onClick={() => setAuthMode("register")}
             className={`w-1/2 py-2 rounded-md font-semibold transition-all duration-300 ${
               authMode === "register"
-                ? "bg-white shadow text-blue-600"
+                ? "bg-link shadow text-font-primary-dark"
                 : "text-gray-500"
             }`}
           >
