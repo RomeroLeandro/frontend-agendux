@@ -4,7 +4,7 @@ import { Sun, Moon } from "lucide-react";
 import { Link } from "react-router-dom";
 import { logoutUser } from "../../services/authService";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const navLinks = [
   { href: "#comoFunciona", label: "Cómo funciona" },
@@ -24,6 +24,7 @@ export const DesktopNav: React.FC<DesktopNavProps> = ({
 }) => {
   const { theme, toggleTheme } = useTheme();
   const navigate = useNavigate();
+  const isClickScrolling = useRef(false);
   const handleLogout = async () => {
     try {
       await logoutUser();
@@ -34,19 +35,90 @@ export const DesktopNav: React.FC<DesktopNavProps> = ({
       navigate("/"); // Redirige a la home
     }
   };
-  const [activeLink, setActiveLink] = useState<string>("");
+  const [activeLink, setActiveLink] = useState("");
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Si el scroll es por un clic, lo ignoramos
+      if (isClickScrolling.current) {
+        return;
+      }
+
+      const sections = navLinks
+        .map((link) => {
+          // Filtramos el link '#' que no tiene sección
+          if (link.href === "#") return null;
+          return document.getElementById(link.href.substring(1));
+        })
+        .filter((section) => section !== null);
+
+      let currentSectionId = "";
+
+      // Iteramos en reversa para encontrar la sección correcta
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = sections[i];
+        if (section) {
+          // Un offset de 150px suele funcionar mejor con headers fijos
+          const sectionTop = section.offsetTop - 150;
+          if (window.scrollY >= sectionTop) {
+            currentSectionId = `#${section.id}`;
+            break; // ¡Importante! Salimos del bucle al encontrar la sección activa
+          }
+        }
+      }
+      setActiveLink(currentSectionId);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const handleLinkClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
+    // Si el link es solo '#', no hacemos scroll suave
+    if (href === "#") {
+      setActiveLink(href);
+      return;
+    }
+
+    e.preventDefault();
+    const section = document.querySelector(href);
+
+    if (section) {
+      // 1. Marcamos que estamos haciendo scroll por clic
+      isClickScrolling.current = true;
+      setActiveLink(href);
+
+      section.scrollIntoView({
+        behavior: "smooth",
+      });
+
+      // 2. Después de un tiempo, desmarcamos el scroll por clic
+      // Este tiempo debe ser suficiente para que termine la animación "smooth"
+      setTimeout(() => {
+        isClickScrolling.current = false;
+      }, 1000); // 1 segundo
+    }
+  };
 
   return (
     <div className="hidden lg:flex items-center justify-between flex-grow">
       <nav className="flex items-center space-x-8 mx-auto">
         {navLinks.map((link) => (
           <a
-            onClick={() => setActiveLink(link.href)}
             key={link.label}
             href={link.href}
+            onClick={(e) => {
+              setActiveLink(link.href);
+              handleLinkClick(e, link.href);
+            }}
             className={`font-poppins font-semibold transition-colors ${
               activeLink === link.href
-                ? "text-blue-600" // Color cuando está activo
+                ? "font-poppins text-blue-600" // Color cuando está activo
                 : "font-poppins text-font-secondary hover:text-blue-primary dark:text-gray-300 transition-colors" // Color normal
             }`}
           >
